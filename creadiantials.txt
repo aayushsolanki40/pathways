@@ -1,0 +1,4 @@
+PhpMyAdmin
+-d : u878064185_pathways
+-u : u878064185_pathways
+-p : Pathways@123
