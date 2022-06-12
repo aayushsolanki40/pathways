@@ -36,7 +36,7 @@
 	<div class="container clearfix">
 		<div class="row">
 			<div class="col-12 d-flex justify-content-between align-items-center">
-				<a href="index.html" class="pathways"><img src="{{asset('assets/img/pathways.svg')}}" alt="Pathways"></a>
+				<a href="{{route('ui.home')}}" class="pathways"><img src="{{asset('assets/img/pathways.svg')}}" alt="Pathways"></a>
 				<div class="header-right d-flex align-items-center">
 					<div class="navigation">
 						<div class="wsmenucontainer clearfix">

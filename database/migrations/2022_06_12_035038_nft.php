@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('nfts', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('userId');
-            $table->string('name');
+            $table->string('title');
+            $table->string('description');
             $table->double('price');
             $table->timestamps();
             $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
