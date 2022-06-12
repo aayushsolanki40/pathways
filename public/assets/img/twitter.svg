@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="tabler:brand-twitter_Background_Mask_" data-name="tabler:brand-twitter (Background/Mask)" width="32" height="32" transform="translate(0 0.5)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="tabler:brand-twitter" transform="translate(0 -0.5)" clip-path="url(#clip-path)">
+    <path id="Vector" d="M22.667,1.467c-1.495-1.687-3.711-1.78-5.84-.983a5.244,5.244,0,0,0-3.493,4.983V6.8A12.523,12.523,0,0,1,2.667,1.467S-2.909,11.378,8,16.134A13.141,13.141,0,0,1,0,18.8c4.411,2.4,9.217,3.231,13.379,2.023A14.673,14.673,0,0,0,23.58,10.5a18.453,18.453,0,0,0,.663-5c0-.332,2.013-3.7,2.424-5.351h0A23.924,23.924,0,0,1,22.667,1.467Z" transform="translate(2.667 5.199)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke-dasharray="0 0"/>
+  </g>
+</svg>

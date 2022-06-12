@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="feather:facebook_Background_Mask_" data-name="feather:facebook (Background/Mask)" width="32" height="32" transform="translate(0 0.5)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="feather:facebook" transform="translate(0 -0.5)" clip-path="url(#clip-path)">
+    <g id="Group" transform="translate(9.333 2.667)">
+      <path id="Vector" d="M10.667,0A6.667,6.667,0,0,0,4,6.667v4H0V16H4V26.667H9.333V16h4l1.333-5.333H9.333v-4a1.333,1.333,0,0,1,1.333-1.333h4V0Z" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke-dasharray="0 0"/>
+    </g>
+  </g>
+</svg>
