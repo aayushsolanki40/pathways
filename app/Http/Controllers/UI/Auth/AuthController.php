@@ -13,11 +13,15 @@ class AuthController extends Controller
         return view('UI.auth.login');
     }
 
-    public function checkAuth(Request $request){
+    public function checkLogin(Request $request){
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
         $email = $request->email;
         $password = $request->password;
         if(Auth::attempt(['email' => $email, 'password' => $password])){
-            return redirect()->back()->with(['success'=>'Login success']);
+            return redirect()->route('ui.home')->with(['success'=>'Login success']);
         }
         else{
             return redirect()->back()->withErrors(['error'=>'Invalid Crediatials.']);

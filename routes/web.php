@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UI\Home\HomeController;
 use App\Http\Controllers\UI\Nft\NFTController;
 use App\Http\Controllers\UI\Auth\AuthController;
+use App\Http\Controllers\UI\User\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,15 +31,24 @@ Route::get('/storage/{foldername}/{filename}', function ($foldername, $filename)
 Route::prefix('auth')->group(function () {
     Route::controller(AuthController::class)->group(function () {
         Route::get('/login', 'login')->name('ui.auth.login');
+        Route::post('/login', 'checkLogin')->name('ui.auth.checkLogin');
         Route::get('/signup', 'signUp')->name('ui.auth.signup');
         Route::post('/signup', 'publishSignUp')->name('ui.auth.makeSignup');
     });
 });
 Route::middleware('auth')->group(function () {
+    Route::controller(UserController::class)->group(function () {
+        Route::get('/profile', 'profile')->name('ui.user.profile');
+        Route::get('/mycollections', 'myCollections')->name('ui.user.mycollections');
+        Route::get('/favorite', 'favorite')->name('ui.user.favorite');
+    });
+
     Route::prefix('nft')->group(function () {
         Route::controller(NFTController::class)->group(function () {
             Route::get('/create', 'create')->name('ui.nft.create');
             Route::post('/create', 'store')->name('ui.nft.store');
+            Route::get('/explorer', 'explorer')->name('ui.nft.explorer');
+            Route::get('/ranking', 'ranking')->name('ui.nft.ranking');
         });
     });
 });

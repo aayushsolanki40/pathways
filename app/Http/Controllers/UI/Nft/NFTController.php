@@ -18,7 +18,7 @@ class NFTController extends Controller
             'title' => 'required',
             'description' => 'required',
             'price' => 'required|numeric',
-            'image' => 'required|mimes:jpeg,jpg,png,gif',
+            'image' => 'required|mimes:jpeg,jpg,png,gif,webp',
         ]);
         $nft = new Nft;
         $nft->userId = auth()->user()->id;
@@ -32,8 +32,16 @@ class NFTController extends Controller
         }
         $res = $nft->save();
         if($res)
-            return redirect()->back()->with(['success'=>'NFt successfully uploaded.']);
+            return redirect()->route('ui.home')->with(['success'=>'NFt successfully uploaded.']);
         else
             return redirect()->back()->withErrors(['error'=>'NFT not upload.'])->withInput();
+    }
+
+    public function explorer(){
+        return view('UI.nft.explorer');
+    }
+
+    public function ranking(){
+        return view('UI.nft.rankings');
     }
 }

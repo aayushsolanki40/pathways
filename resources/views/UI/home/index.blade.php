@@ -37,12 +37,9 @@
 				<div class="explore-carousel">
 					<div class="swiper exploreSwiper">
 						<div class="swiper-wrapper">
-							<div class="swiper-slide"><div class="explore-slide"><img src="{{asset('assets/img/explore.webp')}}" class="w-100" alt="explore"></div></div>
-							<div class="swiper-slide"><div class="explore-slide"><img src="{{asset('assets/img/explore2.webp')}}" class="w-100" alt="explore"></div></div>
-							<div class="swiper-slide"><div class="explore-slide"><img src="{{asset('assets/img/explore3.webp')}}" class="w-100" alt="explore"></div></div>
-							<div class="swiper-slide"><div class="explore-slide"><img src="{{asset('assets/img/explore.webp')}}" class="w-100" alt="explore"></div></div>
-							<div class="swiper-slide"><div class="explore-slide"><img src="{{asset('assets/img/explore2.webp')}}" class="w-100" alt="explore"></div></div>
-							<div class="swiper-slide"><div class="explore-slide"><img src="{{asset('assets/img/explore3.webp')}}" class="w-100" alt="explore"></div></div>
+                            @foreach ($nfts as $nft)
+							<div class="swiper-slide"><div class="explore-slide"><img src="{{$nft->image}}" class="w-100" alt="explore"></div></div>
+							@endforeach
 						</div>
 					</div>
 					<div class="swiper-button-prev explore-button-prev"><img src="{{asset('assets/img/left-arrow.svg')}}" class="w-100" alt="arrow"></div>
@@ -60,64 +57,16 @@
 			</div>
 		</div>
 		<div class="row margin-left-right-35">
-			<div class="col-lg-3 col-md-3 col-sm-4 listing-column">
+            @foreach ($nfts as $nft)
+            <div class="col-lg-3 col-md-3 col-sm-4 listing-column">
 				<div class="listing-box">
-					<div class="listing-sub"><img src="{{asset('assets/img/listing1.webp')}}" class="w-100 listing-img" alt="listing"> <a href="javascript:void(0);" class="favrourite-link position-absolute"><img src="{{asset('assets/img/favrourite.svg')}}" alt="favrourite"></a></div>
-					<h3>Invisible Friends #2965</h3>
-					<div class="price-kd">5000 KWD</div>
+					<div class="listing-sub"><img src="{{$nft->image}}" class="w-100 listing-img" alt="listing"> <a href="javascript:void(0);" class="favrourite-link position-absolute"><img src="{{asset('assets/img/favrourite.svg')}}" alt="favrourite"></a></div>
+					<h3>{{$nft->title}}</h3>
+					<div class="price-kd">{{$nft->price}} KWD</div>
 				</div>
 			</div>
-			<div class="col-lg-3 col-md-3 col-sm-4 listing-column">
-				<div class="listing-box">
-					<div class="listing-sub"><img src="{{asset('assets/img/listing2.webp')}}" class="w-100 listing-img" alt="listing"> <a href="javascript:void(0);" class="favrourite-link position-absolute"><img src="{{asset('assets/img/favrourite.svg')}}" alt="favrourite"></a></div>
-					<h3>Invisible Friends #2965</h3>
-					<div class="price-kd">5000 KWD</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-3 col-sm-4 listing-column">
-				<div class="listing-box">
-					<div class="listing-sub"><img src="{{asset('assets/img/listing3.webp')}}" class="w-100 listing-img" alt="listing"> <a href="javascript:void(0);" class="favrourite-link position-absolute"><img src="{{asset('assets/img/favrourite.svg')}}" alt="favrourite"></a></div>
-					<h3>Invisible Friends #2965</h3>
-					<div class="price-kd">5000 KWD</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-3 col-sm-4 listing-column">
-				<div class="listing-box">
-					<div class="listing-sub"><img src="{{asset('assets/img/listing4.webp')}}" class="w-100 listing-img" alt="listing"> <a href="javascript:void(0);" class="favrourite-link position-absolute"><img src="{{asset('assets/img/favrourite.svg')}}" alt="favrourite"></a></div>
-					<h3>Invisible Friends #2965</h3>
-					<div class="price-kd">5000 KWD</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-3 col-sm-4 listing-column">
-				<div class="listing-box">
-					<div class="listing-sub"><img src="{{asset('assets/img/listing5.webp')}}" class="w-100 listing-img" alt="listing"> <a href="javascript:void(0);" class="favrourite-link position-absolute"><img src="{{asset('assets/img/favrourite.svg')}}" alt="favrourite"></a></div>
-					<h3>Invisible Friends #2965</h3>
-					<div class="price-kd">5000 KWD</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-3 col-sm-4 listing-column">
-				<div class="listing-box">
-					<div class="listing-sub"><img src="{{asset('assets/img/listing6.webp')}}" class="w-100 listing-img" alt="listing"> <a href="javascript:void(0);" class="favrourite-link position-absolute"><img src="{{asset('assets/img/favrourite.svg')}}" alt="favrourite"></a></div>
-					<h3>Invisible Friends #2965</h3>
-					<div class="price-kd">5000 KWD</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-3 col-sm-4 listing-column">
-				<div class="listing-box">
-					<div class="listing-sub"><img src="{{asset('assets/img/listing7.webp')}}" class="w-100 listing-img" alt="listing"> <a href="javascript:void(0);" class="favrourite-link position-absolute"><img src="{{asset('assets/img/favrourite.svg')}}" alt="favrourite"></a></div>
-					<h3>Invisible Friends #2965</h3>
-					<div class="price-kd">5000 KWD</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-3 col-sm-4 listing-column">
-				<div class="listing-box">
-					<div class="listing-sub"><img src="{{asset('assets/img/listing8.webp')}}" class="w-100 listing-img" alt="listing"> <a href="javascript:void(0);" class="favrourite-link position-absolute"><img src="{{asset('assets/img/favrourite.svg')}}" alt="favrourite"></a></div>
-					<h3>Invisible Friends #2965</h3>
-					<div class="price-kd">5000 KWD</div>
-				</div>
-			</div>
+            @endforeach
 		</div>
 	</div>
 </section>
 @endsection
-Z

@@ -1,4 +1,4 @@
-function readURL(input) {
+function readURL(input, elem="") {
   if (input.files && input.files[0]) {
 
     var reader = new FileReader();
@@ -6,7 +6,10 @@ function readURL(input) {
     reader.onload = function(e) {
       $('.image-upload-wrap').hide();
 
+      if(elem=='')
       $('.file-upload-image').attr('src', e.target.result);
+      else
+      $(elem).attr('src', e.target.result);
       $('.file-upload-content').show();
 
       $('.image-title').html(input.files[0].name);

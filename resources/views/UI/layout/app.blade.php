@@ -48,8 +48,8 @@
 								<nav class="wsmenu clearfix">
 									<ul class="mobile-sub wsmenu-list">
 										<li><a href="javascript:void(0);" class="link">Become a Node</a></li>
-										<li><a href="{{asset('assets/explore-collection.html')}}" class="link">Explore</a></li>
-										<li><a href="{{asset('assets/ranking.html')}}" class="link">Ranking</a></li>
+										<li><a href="{{route('ui.nft.explorer')}}" class="link">Explore</a></li>
+										<li><a href="{{route('ui.nft.ranking')}}" class="link">Ranking</a></li>
 									</ul>
 								</nav>
 							</div>
@@ -85,10 +85,8 @@
 									</div>
 								</div>
 							</li>
-							<li class="porfile"><a href="javascript:void(0);"><img src="{{asset('assets/img/porfile.svg')}}" alt="profile_pic"></a></li>
-							<li class="search"><a href="javascript:void(0);" class="search-link"><img src="{{asset('assets/img/search_icon.svg')}}" alt="search"></a>
-
-							</li>
+							<li class="porfile"><a href="{{route('ui.user.profile')}}"><img src="{{asset('assets/img/porfile.svg')}}" alt="profile_pic"></a></li>
+							<li class="search"><a href="javascript:void(0);" class="search-link"><img src="{{asset('assets/img/search_icon.svg')}}" alt="search"></a></li>
 						</ul>
 					</div>
 				</div>
@@ -130,9 +128,9 @@
 						<div class="foot-links-box">
 							<h4>My Account</h4>
 							<ul>
-								<li><a href="javascript:void(0);">Profile</a></li>
-								<li><a href="javascript:void(0);">Favorites</a></li>
-								<li><a href="javascript:void(0);">My Collections</a></li>
+								<li><a href="{{route('ui.user.profile')}}">Profile</a></li>
+								<li><a href="{{route('ui.user.favorite')}}">Favorites</a></li>
+								<li><a href="{{route('ui.user.mycollections')}}">My Collections</a></li>
 								<li><a href="javascript:void(0);">Settings</a></li>
 							</ul>
 						</div>
@@ -185,6 +183,8 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
+{{-- File Reader --}}
+<script src="{{asset('assets/js/file.upload.js')}}"></script>
 <!--<script type="text/javascript" src="js/wow.min.js"></script>-->
 <script type="text/javascript" src="{{asset('assets/js/webslidemenu.js')}}"></script>
 <script src="{{asset('assets/fancybox-master/jquery.fancybox.min.js')}}"></script>
