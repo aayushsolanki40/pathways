@@ -5,6 +5,7 @@ namespace App\Http\Controllers\UI\Nft;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\models\Nft;
+use App\models\User;
 use URL;
 
 class NFTController extends Controller
@@ -38,10 +39,19 @@ class NFTController extends Controller
     }
 
     public function explorer(){
-        return view('UI.nft.explorer');
+        $nfts = NFT::all();
+        return view('UI.nft.explorer')->with(['nfts'=>$nfts]);
     }
 
     public function ranking(){
         return view('UI.nft.rankings');
+    }
+
+    public function viewnft($nftId = 0){
+        $nft = NFT::find($nftId);
+        if(!$nft)
+        return redirect()->back()->withInput();
+        $nft->user = User::find($nft->userId);
+        return view('UI.nft.NFTdetails')->with(['nft'=>$nft]);
     }
 }

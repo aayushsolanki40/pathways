@@ -42,9 +42,7 @@
 										<div class="file-upload">
 											<div class="image-upload-wrap">
 												<input class="file-upload-input" type="file" onchange="readURL(this, '.file-upload-image-profile');" accept="image/*" />
-												<div class="drag-text">
-
-												</div>
+												<div class="drag-text"></div>
 											</div>
 											<div class="file-upload-content">
 												<img class="file-upload-image-cover" src="#" alt="your image" />

@@ -4,7 +4,6 @@
 @import url('dropdown.css');
 *{margin:0;padding:0;-webkit-font-smoothing:antialiased;line-height:normal;}
 body{margin:0 auto;font-size:18px;color:var(--black-color);font-family:var(--poppins);/*background:url("../img/checkout-d.png") center top no-repeat;background-size:100% auto;*//*background:url("../images/Profile Page After Login.png") center top no-repeat;background-size:100% auto*/}
-html,body{ }
 main{display:block;width:100%;height:100%}
 a:active,a:focus,input:focus, textarea:focus,select button{outline:0}
 a:active,a:focus{outline:expression(hideFocus='true')}
@@ -22,7 +21,6 @@ header{padding:68px 0;position:fixed;top:0px;left:0px;right:0px;width:100%;z-ind
 .wsmenu-list > li > a:hover{color:var(--grey-color)}
 .menu-links li a .front{opacity:0.2}
 .menu-links li a .back{right:0;opacity:0.7}
-.menu-links li a span,.mobile-sub li a .lettering{}
 .mobile-sub li a .lettering,.mobile-sub li a .lettering span{line-height:20px;/*border:1px solid red*/}
 .mobile-sub li a .front span{color:var(--black-color)}
 .mobile-sub li a .back span{color:var(--grey-color)}
@@ -95,7 +93,6 @@ header{padding:68px 0;position:fixed;top:0px;left:0px;right:0px;width:100%;z-ind
 .search-bar{position:absolute;top:0;right:19px;transition:all .4s ease-out 0s;width:50px;}
 .search-area{display:block;/*position:absolute;*/left:0%;top:0;width:46px;transition:all .45s ease-out 0s;margin:0 auto}
 .search-area-div{opacity:0}
-.opacity1{}
 .search-area .form-control{border-radius:30px;padding:0.70rem .75rem;padding-left:50px;transition:all .4s ease-out 0s;background:#f5f5f5 url("../img/search_icon.svg") 3px 1px no-repeat;background-size:auto 100%;}
 .search-area .form-control{/*background:rgba(255,255,255,0.5) url("../img/search_icon.svg") 0px center no-repeat;background-size:auto 100%;*/}
 .search-term{width:650px;margin:0 auto 0 auto;margin-top:135px;margin-bottom:50px}
@@ -135,8 +132,6 @@ header{padding:68px 0;position:fixed;top:0px;left:0px;right:0px;width:100%;z-ind
 .header-right .user-account-ul li.search a,.header-right .user-account-ul li.search a img,.header-right .user-account-ul li.search a:hover,.header-right .user-account-ul li.search a:hover img{filter:none!important;transform:none}
 
 .search-opened .header-right .user-account-ul li.search::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:#fff;z-index:9}
-
-.search-section{}
 .search-main{top:35%;
     left:0%;width:86%;
     /*height:calc(100vh - 16px);*/
@@ -243,7 +238,7 @@ h2{font-size:26px}
 .top-listing{padding:19px 0;overflow:hidden;}
 .listing-column{padding:55px 45px}
 .listing-box{}
-.listing-sub{position:relative;border-radius:15px;overflow:hidden;height: 345px;width: 345px;}
+.listing-sub{position:relative;border-radius:15px;overflow:hidden;height: 250px;width: inherit;}
 .listing-sub img{object-fit: contain;}
 .listing-img{}
 .favrourite-link{z-index:9;top:10px;left:10px;width:50px;height:50px;background:rgba(255,255,255,0.6);display:flex;align-content:center;justify-content:center;border-radius:15px;         }
@@ -254,6 +249,11 @@ h2{font-size:26px}
 .listing-box .price-kd{font-size:24px;font-weight:600}
 .listing-box:hover .listing-img{transform:scale(1.1)}
 .listing-box:hover h3,.listing-box:hover .price-kd{opacity:0.7}
+
+.file-upload-content img{
+    height: inherit;
+    object-fit: contain;
+}
 
 .margin-left-right-35{margin-left:-45px;margin-right:-45px}
 .pathways-foot{width:220px;margin-bottom:50px}

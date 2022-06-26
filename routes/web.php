@@ -5,6 +5,7 @@ use App\Http\Controllers\UI\Home\HomeController;
 use App\Http\Controllers\UI\Nft\NFTController;
 use App\Http\Controllers\UI\Auth\AuthController;
 use App\Http\Controllers\UI\User\UserController;
+use App\Http\Controllers\UI\PaymentGateway\PaymentGateway;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,6 +50,16 @@ Route::middleware('auth')->group(function () {
             Route::post('/create', 'store')->name('ui.nft.store');
             Route::get('/explorer', 'explorer')->name('ui.nft.explorer');
             Route::get('/ranking', 'ranking')->name('ui.nft.ranking');
+            Route::get('/details/{nftId}', 'viewnft')->name('ui.nft.details');
+        });
+    });
+
+    Route::prefix('payment')->group(function () {
+        Route::controller(PaymentGateway::class)->group(function () {
+            Route::get('/checkout/nft/{nftId}', 'checkout')->name('ui.checkout.nft');
+            Route::get('/make/{nftId}', 'makePayment')->name('make.payment.nft');
+            Route::get('/cancel', 'cancelPayment')->name('cancel.payment');
+            Route::get('/success', 'successPayment')->name('success.payment');
         });
     });
 });

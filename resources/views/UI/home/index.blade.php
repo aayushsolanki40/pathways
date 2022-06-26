@@ -58,6 +58,7 @@
 		</div>
 		<div class="row margin-left-right-35">
             @foreach ($nfts as $nft)
+            <a href="{{route('ui.nft.details', $nft->id)}}">
             <div class="col-lg-3 col-md-3 col-sm-4 listing-column">
 				<div class="listing-box">
 					<div class="listing-sub"><img src="{{$nft->image}}" class="w-100 listing-img" alt="listing"> <a href="javascript:void(0);" class="favrourite-link position-absolute"><img src="{{asset('assets/img/favrourite.svg')}}" alt="favrourite"></a></div>
@@ -65,6 +66,7 @@
 					<div class="price-kd">{{$nft->price}} KWD</div>
 				</div>
 			</div>
+            </a>
             @endforeach
 		</div>
 	</div>
