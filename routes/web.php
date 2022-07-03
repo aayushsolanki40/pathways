@@ -45,7 +45,7 @@ Route::prefix('auth')->group(function () {
         Route::get('/logout', 'logout')->name('ui.auth.logout');
     });
 });
-Route::middleware('auth')->group(function () {
+Route::middleware('user')->group(function () {
     Route::controller(UserController::class)->group(function () {
         Route::get('/profile', 'profile')->name('ui.user.profile');
         Route::get('/mycollections', 'myCollections')->name('ui.user.mycollections');
