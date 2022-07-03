@@ -10,7 +10,15 @@
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-6 checkout-column">
 						<div class="checkout-box">
-							<a href="javascript:void(0);" class="paypal-link"><img src="{{asset('assets/img/paypal-logo.png')}}" alt="paypal"></a>
+                            <form action="{{route('make.payment')}}" method="POST">
+                                @csrf
+                                <input type="hidden" name="code[]" value="{{$nft->id}}">
+                                <input type="hidden" name="name[]" value="{{$nft->title}}">
+                                <input type="hidden" name="price[]" value="{{$nft->price}}">
+                                <input type="hidden" name="desc[]" value="{{$nft->description}}">
+                                <input type="hidden" name="qty[]" value="1">
+							    <button type="submit" class="paypal-link"><img src="{{asset('assets/img/paypal-logo.png')}}" alt="paypal"></button>
+                            </form>
 							<div class="or"><span>Or</span></div>
 							<div class="credit-debit-card">
 								<h4>Credit/Debit Card</h4>

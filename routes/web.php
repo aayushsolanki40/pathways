@@ -6,6 +6,8 @@ use App\Http\Controllers\UI\Nft\NFTController;
 use App\Http\Controllers\UI\Auth\AuthController;
 use App\Http\Controllers\UI\User\UserController;
 use App\Http\Controllers\UI\PaymentGateway\PaymentGateway;
+use App\Http\Controllers\PayPalPaymentController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -62,4 +64,10 @@ Route::middleware('auth')->group(function () {
             Route::get('/success', 'successPayment')->name('success.payment');
         });
     });
+});
+
+Route::controller(PayPalPaymentController::class)->group(function () {
+    Route::post('handle-payment', 'handlePayment')->name('make.payment');
+    Route::get('cancel-payment', 'paymentCancel')->name('cancel.payment');
+    Route::get('payment-success', 'paymentSuccess')->name('success.payment');
 });

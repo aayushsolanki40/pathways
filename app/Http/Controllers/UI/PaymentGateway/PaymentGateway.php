@@ -19,9 +19,43 @@ class PaymentGateway extends Controller
     }
 
     public function makePayment(){
-        $invoice_no = 'INV2-Z56S-5LLA-Q52L-CPZ5';
         $provider = new PayPalClient;
-        $status = $provider->generateQRCodeInvoice($invoice_no);
-        print_r($status);
+        $provider->setApiCredentials(config('paypal'));
+        $paypalToken = $provider->getAccessToken();
+
+        $response = $provider->createOrder([
+            "intent" => "CAPTURE",
+            "application_context" => [
+                "return_url" => route('success.payment'),
+                "cancel_url" => route('cancel.payment'),
+            ],
+            "purchase_units" => [
+                0 => [
+                    "amount" => [
+                        "currency_code" => "USD",
+                        "value" => "1000.00"
+                    ]
+                ]
+            ]
+        ]);
+
+        if (isset($response['id']) && $response['id'] != null) {
+
+            // redirect to approve href
+            foreach ($response['links'] as $links) {
+                if ($links['rel'] == 'approve') {
+                    return redirect()->away($links['href']);
+                }
+            }
+
+            return redirect()
+                ->route('make.payment.nft')
+                ->with('error', 'Something went wrong.');
+
+        } else {
+            return redirect()
+                ->route('make.payment.nft')
+                ->with('error', $response['message'] ?? 'Something went wrong.');
+        }
     }
 }

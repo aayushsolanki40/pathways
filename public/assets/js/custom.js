@@ -1,5 +1,15 @@
 var flag=1;
 $(document).ready(function() {
+    $("#signupForm").submit(function(e){
+        const password = $("#passwordInp").val();
+        const confCassword = $("#confPasswordInp").val();
+        if(password != confCassword){
+            alert('Confirm password doesn\'t match with password');
+            return false;
+        }
+        return truee;
+    })
+
 	$('.dropdown-link').on('click',function(){
 		var drop_evt = $(this);
 		if(drop_evt.hasClass('active'))

@@ -539,7 +539,7 @@ p{padding-bottom:15px;font-size:18px}
 .history-column h3{font-size:34px;font-weight:bold;text-transform:uppercase;margin-bottom:25px }
 .similar-collection{margin-bottom:70px}
 .similar-collection .listing-column{padding-top:25px;padding-bottom:25px}
-.paypal-link{display:block;background:var(--grey-color);padding:8px 15px;border-radius:35px;text-align:center;margin-top:8px;}
+.paypal-link{display:block;width:100%;background:var(--grey-color);padding:8px 15px;border-radius:35px;text-align:center;margin-top:8px;}
 .paypal-link img{height:45px}
 .paypal-link:hover{background:var(--black-color)}
 .or{text-align:center;margin-top:33px}

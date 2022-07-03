@@ -112,7 +112,7 @@
 		<h2 class="anim1">Payment Successful</h2>
 		<div class="cart-div anim2">
 			<div class="cart-holder"><img src="{{asset('assets/img/product-1.webp')}}" class="w-100" alt=""></div>
-			<p>Lorem Ipsum is simply dummy text of the printing and</p>
+			<p>Lorem Ipsum is simply dummy text of the printing andNzM</p>
 		</div>
 		<div class="share-div anim3">
 			<h2 class="anim4">Share</h2>
