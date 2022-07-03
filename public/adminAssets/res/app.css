@@ -1,0 +1,19 @@
+#adminlogo{
+    height: 40px;
+}
+
+.pagination>.active>a, .pagination>.active>a:hover{
+    color: black;
+}
+
+.loginpagelogo{
+    height: 100px;
+}
+.imageinlist{
+    height: 40px;
+}
+
+.image_in_row{
+    width: 50px;
+    width: 50px;
+}

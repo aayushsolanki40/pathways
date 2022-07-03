@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\Admin\AdminTransactionController;
+use App\Http\Controllers\Admin\AdminUIController;
+use App\Http\Controllers\Admin\UsersControllerAdmin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UI\Home\HomeController;
 use App\Http\Controllers\UI\Nft\NFTController;
@@ -72,6 +76,33 @@ Route::middleware('auth')->group(function () {
         Route::get('cancel-payment', 'paymentCancel')->name('cancel.payment');
         Route::get('payment-success', 'paymentSuccess')->name('success.payment');
     });
+});
+Route::prefix('admin')->group(function () {
+    Route::controller(AdminAuthController::class)->group(function () {
+        Route::get('/login', 'loginPage')->name('admin.login');
+        Route::get('/', 'loginPage');
+        Route::get('/logout', 'logout')->name('admin.logout');
+        Route::post('/login', 'login')->name('admin.login.post');
+    });
 
+    Route::middleware('admin')->group(function () {
+        Route::controller(AdminUIController::class)->group(function () {
+            Route::get('/dashboard', 'index')->name('admin.homepage');
+            Route::get('/profile', 'profile')->name('admin.profile');
+            Route::post('/profile', 'updateprofile')->name('admin.updateprofile');
+        });
+
+        Route::prefix('users')->group(function () {
+            Route::controller(UsersControllerAdmin::class)->group(function () {
+                Route::get('/users', 'index')->name('admin.users.index');
+            });
+        });
+
+        Route::prefix('transaction')->group(function () {
+            Route::controller(AdminTransactionController::class)->group(function () {
+                Route::get('/', 'index')->name('admin.transaction.all');
+            });
+        });
+    });
 });
 

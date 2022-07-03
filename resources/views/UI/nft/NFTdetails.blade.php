@@ -19,6 +19,7 @@
 							</ul>
 							<p>{{$nft->description}}</p>
 							<div class="price">{{$nft->price}} KWD</div>
+                            @if(($nft->owner != auth()->user()->id)&&($nft->user_id != auth()->user()->id))
 							<div class="row">
 								<div class="col-lg-6 col-md-6 col-sm-6">
 									<a href="{{route('ui.checkout.nft', $nft->id)}}" class="button w-100">Buy Now</a>
@@ -28,6 +29,7 @@
 									<a href="javascript:void(0);" data-src="#successModel" data-fancybox class="success" style="display:none">Make An Offer</a>
 								</div>
 							</div>
+                            @endif
 						</div>
 					</div>
 				</div>
@@ -154,7 +156,9 @@
 @section('scripts')
 <script>
 	$(document).ready(function(){
-		$('.success').trigger('click');
+        @if(session()->has('paymentStatus'))
+        $('.success').trigger('click');
+        @endif
 	});
 </script>
 @endsection

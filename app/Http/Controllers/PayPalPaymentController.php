@@ -1,5 +1,7 @@
 <?php
 namespace App\Http\Controllers;
+
+use App\Models\Nft;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Transaction;
@@ -66,7 +68,7 @@ class PayPalPaymentController extends Controller
         $transaction->user_id = auth()->user()->id;
         $transaction->transaction_id = $request->token;
         $transaction->invoice_no = $response['INVNUM'];
-        $transaction->ack = $transPayPal['ACK'];
+        $transaction->ack = $response['ACK'];
         $transaction->amt = $response['AMT'];
         $transaction->payer_id = $response['PAYERID'];
         $transaction->payer_firtsname =  $response['FIRSTNAME'];
@@ -77,10 +79,17 @@ class PayPalPaymentController extends Controller
         $transaction->short_msg =  $transPayPal['L_SHORTMESSAGE0'];
         $transaction->long_msg =  $transPayPal['L_LONGMESSAGE0'];
         $transaction->save();
-        if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
-            dd('Payment was successfull. The payment success page goes here!');
-        }
 
+        $order = Order::where('invoice_no', $response['INVNUM'])->first();
+        $items = OrderItem::where('order_id', $order->id)->first();
+
+        if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
+            $nft = Nft::find($items->item_id);
+            $nft->owner = auth()->user()->id;
+            $nft->save();
+            return redirect()->route('ui.nft.details', $items->item_id)->with(['paymentStatus'=>true]);
+        }
+        return redirect()->route('ui.checkout.nft')->with(['error'=>$transPayPal['L_LONGMESSAGE0']]);
         dd('Error occured!');
     }
 }
