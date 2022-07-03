@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\models\User;
 use Auth;
+use Session;
 
 class AuthController extends Controller
 {
@@ -50,6 +51,12 @@ class AuthController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
         if($user)
-            return redirect()->back()->with(['message'=>'User signup successfully.']);
+            return redirect()->back()->with(['message'=>'Signup done successfully.']);
+    }
+
+    public function logout(){
+        Session::flush();
+        Auth::logout();
+        return redirect()->route('ui.auth.login');
     }
 }

@@ -13,7 +13,8 @@ use App\Http\Controllers\PayPalPaymentController;
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
+| Here is where you can register web r
+outes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
@@ -37,6 +38,7 @@ Route::prefix('auth')->group(function () {
         Route::post('/login', 'checkLogin')->name('ui.auth.checkLogin');
         Route::get('/signup', 'signUp')->name('ui.auth.signup');
         Route::post('/signup', 'publishSignUp')->name('ui.auth.makeSignup');
+        Route::get('/logout', 'logout')->name('ui.auth.logout');
     });
 });
 Route::middleware('auth')->group(function () {
@@ -64,10 +66,12 @@ Route::middleware('auth')->group(function () {
             Route::get('/success', 'successPayment')->name('success.payment');
         });
     });
+
+    Route::controller(PayPalPaymentController::class)->group(function () {
+        Route::post('handle-payment', 'handlePayment')->name('make.payment');
+        Route::get('cancel-payment', 'paymentCancel')->name('cancel.payment');
+        Route::get('payment-success', 'paymentSuccess')->name('success.payment');
+    });
+
 });
 
-Route::controller(PayPalPaymentController::class)->group(function () {
-    Route::post('handle-payment', 'handlePayment')->name('make.payment');
-    Route::get('cancel-payment', 'paymentCancel')->name('cancel.payment');
-    Route::get('payment-success', 'paymentSuccess')->name('success.payment');
-});

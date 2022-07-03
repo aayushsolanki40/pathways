@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\ExpressCheckout;
 class PayPalPaymentController extends Controller
@@ -11,8 +12,8 @@ class PayPalPaymentController extends Controller
         $product = [];
         $totalAmt = 0;
         $invoice_id  = hash('sha256', microtime() );
-        $orderItems = array();
         $order = new Order;
+        $order->user_id = auth()->user()->id;
         $order->invoice_no = $invoice_id;
         $order->invoice_description = "Order #{$invoice_id} Bill";
         $order->active = 0;
@@ -59,7 +60,23 @@ class PayPalPaymentController extends Controller
     {
         $paypalModule = new ExpressCheckout;
         $response = $paypalModule->getExpressCheckoutDetails($request->token);
+        $transPayPal = $paypalModule->getTransactionDetails($request->token);
 
+        $transaction = new Transaction;
+        $transaction->user_id = auth()->user()->id;
+        $transaction->transaction_id = $request->token;
+        $transaction->invoice_no = $response['INVNUM'];
+        $transaction->ack = $transPayPal['ACK'];
+        $transaction->amt = $response['AMT'];
+        $transaction->payer_id = $response['PAYERID'];
+        $transaction->payer_firtsname =  $response['FIRSTNAME'];
+        $transaction->payer_lastname =  $response['LASTNAME'];
+        $transaction->payer_email =  $response['EMAIL'];
+        $transaction->payer_status =  $response['PAYERSTATUS'];
+        $transaction->country_code =  $response['CURRENCYCODE'];
+        $transaction->short_msg =  $transPayPal['L_SHORTMESSAGE0'];
+        $transaction->long_msg =  $transPayPal['L_LONGMESSAGE0'];
+        $transaction->save();
         if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
             dd('Payment was successfull. The payment success page goes here!');
         }

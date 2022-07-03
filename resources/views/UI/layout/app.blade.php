@@ -29,6 +29,7 @@
 <link href="{{asset('assets/css/webslidemenu.css')}}" rel="stylesheet" type="text/css" media="all" />
 <link href="{{asset('assets/css/pathways.css')}}" rel="stylesheet" type="text/css" media="all" />
 <link href="{{asset('assets/css/responsive.css')}}" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 
 <body>
@@ -194,7 +195,16 @@
 <script src="{{asset('assets/swiper/swiper.js')}}"></script>
 <!--end swiper-->
 <script src="{{asset('assets/js/lettering.js')}}"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 <script src="{{asset('assets/js/custom.js')}}"></script>
+@if(session()->has('message'))
+<script>
+    Toastify({
+        text: "{{ session()->get('message') }}",
+    }).showToast();
+</script>
+@endif
+
 @yield('scripts')
 </body>
 </html>

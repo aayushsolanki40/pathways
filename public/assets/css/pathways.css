@@ -24,7 +24,7 @@ header{padding:68px 0;position:fixed;top:0px;left:0px;right:0px;width:100%;z-ind
 .mobile-sub li a .lettering,.mobile-sub li a .lettering span{line-height:20px;/*border:1px solid red*/}
 .mobile-sub li a .front span{color:var(--black-color)}
 .mobile-sub li a .back span{color:var(--grey-color)}
-.link{position:relative;z-index:1;}
+.link{position:relative;z-index:1; color: blue;}
 .lettering{overflow:hidden}
 .lettering span{display:inline-block;transition:all 0.4s cubic-bezier(0.86,0.7,0.07,1);}
 .lettering.front span{transform:translateY(0%)}

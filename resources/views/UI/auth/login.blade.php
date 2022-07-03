@@ -39,6 +39,12 @@
                             @if($errors->any())
                                     <span class="error align-center"> {!! implode('', $errors->all('<div>:message</div>')) !!}</span>
                             @endif
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <span>If you doesn't have an account ? <a class="link" href="{{route('ui.auth.signup')}}">Sign Up</a></span>
+                                </div>
+                            </div>
+                            <br>
 							<div class="form-group">
 								<button class="button file-upload-btn" type="submit">Unlock</button>
 								<div class="wallet-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</div>
