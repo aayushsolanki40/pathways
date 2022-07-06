@@ -6,14 +6,12 @@
                 <div class="col-12">
                     <h1 class="position-relative font-size56">Signup</h1>
                 </div>
-                <div class="col-12">
-                    <div class="col-lg-8 col-md-8 col-sm-10 system-column">
+                <div class="col-lg-8 col-md-8 col-sm-10 system-column">
                     @if(session()->has('message'))
                         <div class="alert alert-success">
                             {{ session()->get('message') }}
                         </div>
                     @endif
-                    </div>
                 </div>
                 <div class="col-12 ranking-listing">
                     <div class="row text-center justify-content-center">
@@ -58,7 +56,7 @@
                                             @enderror
                                         </div>
                                         <div class="form-group"><input id="confPasswordInp" type="password" name="confPassword" class="form-control"
-                                                placeholder="Confirm Password" value="{{ old('confPassword') }}" autocomplete=false >
+                                                placeholder="Confirm Password" value="" autocomplete=false >
                                                 @error('confPassword')
                                                     <div class="error text-danger text-left">{{ $message }}</div>
                                                 @enderror</div>

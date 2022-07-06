@@ -17,7 +17,16 @@
 					</div>
 				</div>
 			</div>
-
+            <div class="col-lg-8 col-md-8 col-sm-10 offset-md-2 system-column">
+                @if(session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session()->get('message') }}
+                    </div>
+                @endif
+                @if($errors->any())
+                <div class="alert alert-danger"> {!! implode('', $errors->all('<div>:message</div>')) !!}</div>
+                @endif
+            </div>
 			<div class="col-12 ranking-listing">
 				<div class="row text-center justify-content-center">
 					<div class="col-lg-8 col-md-8 col-sm-10 system-column">
@@ -36,9 +45,7 @@
                                     <div class="error">{{ $errors->first('password') }}</div>
                                 @endif
 							</div>
-                            @if($errors->any())
-                                    <span class="error align-center"> {!! implode('', $errors->all('<div>:message</div>')) !!}</span>
-                            @endif
+
                             <div class="row">
                                 <div class="col-md-12">
                                     <span>If you doesn't have an account ? <a class="link" href="{{route('ui.auth.signup')}}">Sign Up</a></span>

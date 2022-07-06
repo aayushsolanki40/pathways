@@ -37,8 +37,8 @@ class AuthController extends Controller
         $this->validate($request, [
             'firstName' => 'required',
             'lastName' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required|digits:10',
+            'email' => 'required|email|unique:users,email',
+            'phone' => 'required|digits:10|unique:users,phone',
             'password' => 'required',
             'confPassword' => 'required'
         ]);
@@ -51,7 +51,7 @@ class AuthController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
         if($user)
-            return redirect()->back()->with(['message'=>'Signup done successfully.']);
+            return redirect()->route('ui.auth.login')->with(['message'=>'Signup done successfully. Please Login.']);
     }
 
     public function logout(){

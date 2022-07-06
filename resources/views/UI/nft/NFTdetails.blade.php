@@ -19,7 +19,7 @@
 							</ul>
 							<p>{{$nft->description}}</p>
 							<div class="price">{{$nft->price}} KWD</div>
-                            @if(($nft->owner != auth()->user()->id)&&($nft->user_id != auth()->user()->id))
+                            @if(($nft->owner != auth()->user()->id)&&($nft->userId != auth()->user()->id))
 							<div class="row">
 								<div class="col-lg-6 col-md-6 col-sm-6">
 									<a href="{{route('ui.checkout.nft', $nft->id)}}" class="button w-100">Buy Now</a>
@@ -81,8 +81,6 @@
 							<div class="price-kd">5000 KWD</div>
 						</div>
 					</div>
-
-
 				</div>
 			</div>
 		</div>
